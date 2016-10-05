@@ -276,7 +276,7 @@ var config = {
      
     ,serverMetadata: {
       cdn_url: {
-        http: 'api.cartocdn.com',
+        http: '118.138.236.211',
         https: 'cartocdn.global.ssl.fastly.net'
       }
     }
