@@ -1,5 +1,5 @@
 var config = {
-    environment: 'development'
+     environment: 'development'
     ,port: 8181
     ,host: '0.0.0.0'
     // Size of the threadpool which can be used to run user code and get notified in the loop thread
@@ -36,28 +36,36 @@ var config = {
     // idle socket timeout, in milliseconds
     ,socket_timeout: 600000
     ,enable_cors: true
-    ,cache_enabled: true
+    ,cache_enabled: false
     ,log_format: ':req[X-Real-IP] :method :req[Host]:url :status :response-time ms -> :res[Content-Type] (:res[X-Tiler-Profiler])'
     // If log_filename is given logs will be written
     // there, in append mode. Otherwise stdout is used (default).
     // Log file will be re-opened on receiving the HUP signal
-    ,log_filename: 'logs/node-windshaft.log'
+    ,log_filename: undefined
     // Templated database username for authorized user
     // Supported labels: 'user_id' (read from redis)
-    ,postgres_auth_user: 'cartodb_user_<%= user_id %>'
+    ,postgres_auth_user: 'development_cartodb_user_<%= user_id %>'
     // Templated database password for authorized user
     // Supported labels: 'user_id', 'user_password' (both read from redis)
     ,postgres_auth_pass: '<%= user_password %>'
     ,postgres: {
         // Parameters to pass to datasource plugin of mapnik
         // See http://github.com/mapnik/mapnik/wiki/PostGIS
+        type: "postgis",
         user: "publicuser",
         password: "public",
         host: '127.0.0.1',
-        port: 6432,
+        port: 5432,
         extent: "-20037508.3,-20037508.3,20037508.3,20037508.3",
+        /* experimental
+        geometry_field: "the_geom",
+        extent: "-180,-90,180,90",
+        srid: 4326,
+        */
         // max number of rows to return when querying data, 0 means no limit
         row_limit: 65535,
+        simplify_geometries: true,
+        use_overviews: true, // use overviews to retrieve raster
         /*
          * Set persist_connection to false if you want
          * database connections to be closed on renderer
@@ -66,8 +74,6 @@ var config = {
          * close any connection for the server's lifetime
          */
         persist_connection: false,
-        simplify_geometries: true,
-        use_overviews: true, // use overviews to retrieve raster
         max_size: 500
     }
     ,mapnik_version: undefined
@@ -75,7 +81,7 @@ var config = {
     ,statsd: {
         host: 'localhost',
         port: 8125,
-        prefix: ':host.', // could be hostname, better not containing dots
+        prefix: 'dev.',
         cacheDns: true
         // support all allowed node-statsd options
     }
@@ -204,12 +210,6 @@ var config = {
             endpoint: 'http://127.0.0.1:8080/api/v2/sql/job',
             // the template to use for adding the host header in the batch api requests
             hostHeaderTemplate: '{{=it.username}}.localhost.lan'
-        },
-        logger: {
-            // If filename is given logs comming from analysis client  will be written
-            // there, in append mode. Otherwise 'log_filename' is used. Otherwise stdout is used (default).
-            // Log file will be re-opened on receiving the HUP signal
-            filename: 'logs/analysis.log'
         }
     }
     ,millstone: {
@@ -228,8 +228,8 @@ var config = {
         // kept open by the server. The default is 50.
         max: 50,
         returnToHead: true, // defines the behaviour of the pool: false => queue, true => stack
-        idleTimeoutMillis: 30000, // idle time before dropping connection
-        reapIntervalMillis: 1000, // time between cleanups
+        idleTimeoutMillis: 1, // idle time before dropping connection
+        reapIntervalMillis: 1, // time between cleanups
         slowQueries: {
             log: true,
             elapsedThreshold: 200
@@ -272,15 +272,10 @@ var config = {
     // If useProfiler is true every response will be served with an
     // X-Tiler-Profile header containing elapsed timing for various
     // steps taken for producing the response.
-    ,useProfiler:false
-    ,serverMetadata: {
-      cdn_url: {
-        http: 'http://118.138.236.211'
-      }
-    }
+    ,useProfiler:true
     // Settings for the health check available at /health
     ,health: {
-      enabled: true,
+      enabled: false,
       username: 'localhost',
       z: 0,
       x: 0,
@@ -295,7 +290,8 @@ var config = {
         // whether the affected tables for a given SQL must query directly postgresql or use the SQL API
         cdbQueryTablesFromPostgres: true,
         // whether in mapconfig is available stats & metadata for each layer
-        layerMetadata: false
+        layerMetadata: true
+
     }
 };
 
