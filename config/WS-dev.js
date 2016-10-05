@@ -274,12 +274,12 @@ var config = {
     // steps taken for producing the response.
     ,useProfiler:true
      
-    ,serverMetadata: {
-      cdn_url: {
-        http: '118.138.236.211',
-        https: 'cartocdn.global.ssl.fastly.net'
-      }
-    }
+//     ,serverMetadata: {
+//       cdn_url: {
+//         http: '118.138.236.211',
+//         https: 'cartocdn.global.ssl.fastly.net'
+//       }
+//     }
     // Settings for the health check available at /health
     ,health: {
       enabled: false,
@@ -297,7 +297,7 @@ var config = {
         // whether the affected tables for a given SQL must query directly postgresql or use the SQL API
         cdbQueryTablesFromPostgres: true,
         // whether in mapconfig is available stats & metadata for each layer
-        layerMetadata: true
+        layerMetadata: false
 
     }
 };
