@@ -1,7 +1,7 @@
 var config = {
      environment: 'development'
     ,port: 8181
-    ,host: '118.138.236.211',
+    ,host: '0.0.0.0',
      ,serverMetadata: {
      cdn_url: {
           http:             '118.138.236.211'
