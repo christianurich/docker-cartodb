@@ -179,7 +179,7 @@ RUN git clone https://github.com/CartoDB/data-services &&\
   service postgresql stop
 
 # Copy confs
-ADD ./config/CartoDB-dev.js \
+ADD ./config/CartoDB-dev.js  \
       /CartoDB-SQL-API/config/environments/development.js
 ADD ./config/WS-dev.js \
       /Windshaft-cartodb/config/environments/development.js
