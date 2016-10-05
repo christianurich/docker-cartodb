@@ -11,7 +11,8 @@ var config = {
     //,user_from_host: '^([^\\.]+)\\.'
     ,serverMetadata: {
       cdn_url: {
-        http: '118.138.236.211'
+        http: '118.138.236.211',
+        https: '118.138.236.211'
       }
      }
     // Base URLs for the APIs
