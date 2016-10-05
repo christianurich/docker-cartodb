@@ -209,7 +209,7 @@ var config = {
             // where the SQL API is running, it will use a custom Host header to specify the username.
             endpoint: 'http://127.0.0.1:8080/api/v2/sql/job',
             // the template to use for adding the host header in the batch api requests
-            hostHeaderTemplate: '{{=it.username}}.localhost.lan'
+            hostHeaderTemplate: '118.138.236.211'
         }
     }
     ,millstone: {
