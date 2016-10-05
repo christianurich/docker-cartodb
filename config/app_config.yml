@@ -46,7 +46,7 @@ defaults: &defaults
     private:
       protocol:   'http'
       domain:     '118.138.236.211'
-      endpoint:   '/api/v2/sql'
+      endpoint:   '/api/v1/sql'
       port:       80
     public:
       protocol:   'http'
