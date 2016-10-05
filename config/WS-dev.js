@@ -9,11 +9,11 @@ var config = {
     // Regular expression pattern to extract username
     // from hostname. Must have a single grabbing block.
     ,user_from_host: '^([^\\.]+)\\.'
-    ,serverMetadata: {
-      cdn_url: {
-        http: '118.138.236.211'
-      }
-    }
+    // ,serverMetadata: {
+    //  cdn_url: {
+    //    http: '118.138.236.211'
+    //  }
+    // }
     // Base URLs for the APIs
     //
     // See http://github.com/CartoDB/Windshaft-cartodb/wiki/Unified-Map-API
@@ -294,7 +294,7 @@ var config = {
         // whether the affected tables for a given SQL must query directly postgresql or use the SQL API
         cdbQueryTablesFromPostgres: true,
         // whether in mapconfig is available stats & metadata for each layer
-        layerMetadata: true
+        layerMetadata: false
 
     }
 };
