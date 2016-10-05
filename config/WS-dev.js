@@ -2,8 +2,10 @@ var config = {
      environment: 'development'
     ,port: 8181
     ,host: '118.138.236.211',
+     ,serverMetadata: {
      cdn_url: {
           http:             '118.138.236.211'
+     }
      },
     // Size of the threadpool which can be used to run user code and get notified in the loop thread
     // Its default size is 4, but it can be changed at startup time (the absolute maximum is 128).
@@ -293,7 +295,7 @@ var config = {
         // whether the affected tables for a given SQL must query directly postgresql or use the SQL API
         cdbQueryTablesFromPostgres: true,
         // whether in mapconfig is available stats & metadata for each layer
-        layerMetadata: false
+        layerMetadata: true
 
     }
 };
