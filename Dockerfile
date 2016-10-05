@@ -181,7 +181,7 @@ RUN git clone https://github.com/CartoDB/data-services &&\
 # Copy confs
 ADD ./config/CartoDB-dev.js  \
       /CartoDB-SQL-API/config/environments/development.js
-ADD ./config/WS-dev.js \
+ADD ./config/WS-dev.js  \
       /Windshaft-cartodb/config/environments/development.js
 ADD ./config/app_config.yml /cartodb/config/app_config.yml
 ADD ./config/database.yml /cartodb/config/database.yml
