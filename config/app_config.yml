@@ -17,7 +17,7 @@ defaults: &defaults
   secret_token:       '71c2b25921b84a1cb21c71503ab8fb23'
   account_host:       '118.138.236.211:3000'
   account_path:       '/account'
-  vizjson_cache_domains: ['.localhost']
+  vizjson_cache_domains: ['118.138.236.211']
   data_library:
     username:         'common-data'
     path:             '/data-library'
