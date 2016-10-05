@@ -1,5 +1,5 @@
 var config = {
-    environment: 'production'
+    environment: 'development'
     ,port: 8181
     ,host: '0.0.0.0'
     // Size of the threadpool which can be used to run user code and get notified in the loop thread
@@ -273,11 +273,11 @@ var config = {
     // X-Tiler-Profile header containing elapsed timing for various
     // steps taken for producing the response.
     ,useProfiler:false
-//     ,serverMetadata: {
-//       cdn_url: {
-//         http: 'http://118.138.236.211'
-//       }
-//     }
+    ,serverMetadata: {
+      cdn_url: {
+        http: 'http://118.138.236.211'
+      }
+    }
     // Settings for the health check available at /health
     ,health: {
       enabled: true,
