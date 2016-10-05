@@ -1,7 +1,7 @@
 var config = {
      environment: 'development'
     ,port: 8181
-    ,host: '0.0.0.0'
+    ,host: '118.138.236.211'
     // Size of the threadpool which can be used to run user code and get notified in the loop thread
     // Its default size is 4, but it can be changed at startup time (the absolute maximum is 128).
     // See http://docs.libuv.org/en/latest/threadpool.html
@@ -207,7 +207,7 @@ var config = {
             //  - running an standalone server without any dependency on external services
             inlineExecution: false,
             // where the SQL API is running, it will use a custom Host header to specify the username.
-            endpoint: 'http://127.0.0.1:8080/api/v2/sql/job',
+            endpoint: 'http://118.138.236.211:8080/api/v2/sql/job',
             // the template to use for adding the host header in the batch api requests
             hostHeaderTemplate: '118.138.236.211'
         }
