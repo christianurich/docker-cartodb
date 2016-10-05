@@ -13,7 +13,7 @@ var config = {
       cdn_url: {
         http: '118.138.236.211'
       }
-    // }
+     }
     // Base URLs for the APIs
     //
     // See http://github.com/CartoDB/Windshaft-cartodb/wiki/Unified-Map-API
