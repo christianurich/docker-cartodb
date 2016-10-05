@@ -273,6 +273,13 @@ var config = {
     // X-Tiler-Profile header containing elapsed timing for various
     // steps taken for producing the response.
     ,useProfiler:true
+     
+    ,serverMetadata: {
+      cdn_url: {
+        http: 'api.cartocdn.com',
+        https: 'cartocdn.global.ssl.fastly.net'
+      }
+    }
     // Settings for the health check available at /health
     ,health: {
       enabled: false,
